@@ -20,7 +20,9 @@ defmodule FoodieWeb.Router do
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", FoodieWeb do
-  #   pipe_through :api
-  # end
+  scope "/api", FoodieWeb do
+
+     pipe_through :api
+     resources "/recipes", RecipeController, except: [:new, :edit]
+  end
 end

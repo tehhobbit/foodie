@@ -6,7 +6,7 @@ defmodule Foodie.RecipesTest do
   describe "recipes" do
     alias Foodie.Recipes.Recipe
 
-    @valid_attrs %{instructions: "some instructions", title: "some title"}
+    @valid_attrs %{instructions: "some instructions", title: "some title", ingredients: [%{unit: "dl", amount: 1.3, name: "milk"}]}
     @update_attrs %{instructions: "some updated instructions", title: "some updated title"}
     @invalid_attrs %{instructions: nil, title: nil}
 

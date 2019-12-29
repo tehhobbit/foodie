@@ -5,7 +5,7 @@ defmodule Foodie.Recipes.Recipe do
   schema "recipes" do
     field :instructions, :string
     field :title, :string
-
+    has_many :ingredients, Foodie.Recipes.Ingredient
     timestamps()
   end
 
@@ -13,6 +13,7 @@ defmodule Foodie.Recipes.Recipe do
   def changeset(recipe, attrs) do
     recipe
     |> cast(attrs, [:title, :instructions])
+    |> cast_assoc(:ingredients)
     |> validate_required([:title, :instructions])
   end
 end

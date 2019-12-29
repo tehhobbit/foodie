@@ -18,7 +18,9 @@ defmodule Foodie.Recipes do
 
   """
   def list_recipes do
-    Repo.all(Recipe)
+    Recipe
+    |> preload(:ingredients)
+    |> Repo.all
   end
 
   @doc """
@@ -35,7 +37,12 @@ defmodule Foodie.Recipes do
       ** (Ecto.NoResultsError)
 
   """
-  def get_recipe!(id), do: Repo.get!(Recipe, id)
+  def get_recipe!(id) do
+    Recipe
+    |> where([recipe], recipe.id == ^id)
+    |> preload([:ingredients])
+    |> Repo.one!
+  end
 
   @doc """
   Creates a recipe.

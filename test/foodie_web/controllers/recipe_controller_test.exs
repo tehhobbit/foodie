@@ -6,11 +6,13 @@ defmodule FoodieWeb.RecipeControllerTest do
 
   @create_attrs %{
     instructions: "some instructions",
-    title: "some title"
+    title: "some title",
+    ingredients: []
   }
   @update_attrs %{
     instructions: "some updated instructions",
-    title: "some updated title"
+    title: "some updated title",
+    ingredients: []
   }
   @invalid_attrs %{instructions: nil, title: nil}
 
